@@ -1,4 +1,4 @@
-/ 전공학과 월드컵 03/
+/ 전공학과 월드컵 04/
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -311,7 +311,13 @@
         }
         html += `</table>`;
       });
+      html += `<button id="printResultBtn" style="margin-top:24px;font-size:20px;">인쇄</button>`;
       result.innerHTML = html;
+
+      // 인쇄 기능 이벤트 등록
+      document.getElementById('printResultBtn').onclick = function() {
+        window.print();
+      };
     }
 
     function showLoading(name) {
