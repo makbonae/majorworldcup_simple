@@ -1,4 +1,4 @@
-/ 전공학과 월드컵 01/
+/ 전공학과 월드컵 02/
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -299,14 +299,14 @@
         const finals = round.finals.filter(x => x.major !== round.final.major);
         const semis = round.semis.filter(x => !round.finals.includes(x));
         const quarters = round.quarters.filter(x => !round.semis.includes(x));
-        html += `<h3>Round ${idx + 1}</h3><table><tr><th>구분</th><th>전공</th></tr>`;
-        html += `<tr><td>최종선택</td><td>${round.final.major}</td></tr>`;
-        finals.forEach(item => html += `<tr><td>결승진출</td><td>${item.major}</td></tr>`);
+        html += `<h3>Round ${idx + 1}</h3><table><tr><th>구분</th><th>전공</th><th>유사학과</th></tr>`;
+        html += `<tr><td>최종선택</td><td>${round.final.major}</td><td>${round.final.friends}</td></tr>`;
+        finals.forEach(item => html += `<tr><td>결승진출</td><td>${item.major}</td><td>${item.friends}</td></tr>`);
         if (semis.length > 0) {
-          semis.forEach(item => html += `<tr><td>4강진출</td><td>${item.major}</td></tr>`);
+          semis.forEach(item => html += `<tr><td>4강진출</td><td>${item.major}</td><td>${item.friends}</td></tr>`);
         }
         if (quarters.length > 0) {
-          quarters.forEach(item => html += `<tr><td>8강진출</td><td>${item.major}</td></tr>`);
+          quarters.forEach(item => html += `<tr><td>8강진출</td><td>${item.major}</td><td>${item.friends}</td></tr>`);
         }
         html += `</table>`;
       });
